@@ -17,7 +17,10 @@ Game& Game::Instance()
 
 void Game::Update(Ogre::Real timeElapsed)
 {
-    PlatformNodePointer->translate(Ogre::Vector3(0, -0.1, 0));
+    for (int i = 0; i < PlatformNodePointer.size(); i++)
+    {
+        PlatformNodePointer[i]->translate(Ogre::Vector3(0, -0.1, 0));
+    }
 }
 
 void Game::setup()
@@ -227,11 +230,20 @@ void Game::createSceneObjects()
     //PlayerNodePointer->setScale(3.0f, 3.0f, 3.0f);
     //! [ninja]
     
+    
     Entity* cubeEntity = scnMgr->createEntity("WoodPallet.mesh");
-    PlatformNodePointer = scnMgr->getRootSceneNode()->createChildSceneNode("Ball");
-    PlatformNodePointer->attachObject(cubeEntity);
-    PlatformNodePointer->setPosition(0.0f, -1.0f, 0.0f);
-    PlatformNodePointer->setScale(20.0f, 15.0f, 10.0f);
+    PlatformNodePointer.push_back(scnMgr->getRootSceneNode()->createChildSceneNode());
+    int last = PlatformNodePointer.size() - 1;
+    PlatformNodePointer[last]->attachObject(cubeEntity);
+    PlatformNodePointer[last]->setPosition(0.0f, -1.0f, 0.0f);
+    PlatformNodePointer[last]->setScale(20.0f, 15.0f, 10.0f);
+
+    Entity* cubeEntity2 = scnMgr->createEntity("WoodPallet.mesh");
+    PlatformNodePointer.push_back(scnMgr->getRootSceneNode()->createChildSceneNode());
+    last = PlatformNodePointer.size() - 1;
+    PlatformNodePointer[last]->attachObject(cubeEntity2);
+    PlatformNodePointer[last]->setPosition(100.0f, 300.0f, 0.0f);
+    PlatformNodePointer[last]->setScale(20.0f, 15.0f, 10.0f);
 
     /*
     //! [plane]
@@ -289,9 +301,8 @@ bool Game::keyPressed(const KeyboardEvent& evt)
 
 void Game::createFrameListener()
 {
-    Ogre::FrameListener* FrameListener = new ExampleFrameListener();
+    Ogre::FrameListener* FrameListener = new GameFrameListener();
     mRoot->addFrameListener(FrameListener);
-
     /*FrameListener = new ExampleFrameListener(PlatformNodePointer);
     mRoot->addFrameListener(FrameListener);*/
 }

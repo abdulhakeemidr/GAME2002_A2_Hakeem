@@ -3,15 +3,15 @@
 #include "Game.h"
 #include <OgreApplicationContextBase.h>
 
-class ExampleFrameListener : public Ogre::FrameListener
+class GameFrameListener : public Ogre::FrameListener
 {
 private:
     Ogre::SceneNode* _node;
     Ogre::Vector3 ballTranslate = Ogre::Vector3(1, 0.5, 0);
 public:
-    ExampleFrameListener(){}
+    GameFrameListener(){}
 
-    ExampleFrameListener(Ogre::SceneNode* node)
+    GameFrameListener(Ogre::SceneNode* node)
     {
         _node = node;
     }

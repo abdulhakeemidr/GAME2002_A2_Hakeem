@@ -30,16 +30,19 @@ public:
     void createSceneLighting();
     void createSceneObjects();
     void createCamera();
-    void Update(Ogre::Real timeElapsed);
     bool keyPressed(const KeyboardEvent& evt);
     void createFrameListener();
     void createTrayUI();
+    
+    void Update(Ogre::Real timeElapsed);
 
     static Game& Instance();
     SceneManager* getSceneManager() { return scnMgr; }
 
     Ogre::SceneNode* PlayerNodePointer;
-    Ogre::SceneNode* PlatformNodePointer;
+
+    std::vector<SceneNode*> PlatformNodePointer;
+    std::vector<SceneNode*>::iterator iterator;
 
     OgreBites::TrayListener myTrayListener;
     OgreBites::Label* mInfoLabel;
