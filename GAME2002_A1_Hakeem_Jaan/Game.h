@@ -27,9 +27,10 @@ public:
     Game();
     virtual ~Game() {}
     void setup();
-    void createScene();
+    void createSceneLighting();
+    void createSceneObjects();
     void createCamera();
-    void Update();
+    void Update(Ogre::Real timeElapsed);
     bool keyPressed(const KeyboardEvent& evt);
     void createFrameListener();
     void createTrayUI();
@@ -38,7 +39,7 @@ public:
     SceneManager* getSceneManager() { return scnMgr; }
 
     Ogre::SceneNode* PlayerNodePointer;
-    Ogre::SceneNode* BallNodePointer;
+    Ogre::SceneNode* PlatformNodePointer;
 
     OgreBites::TrayListener myTrayListener;
     OgreBites::Label* mInfoLabel;

@@ -1,6 +1,3 @@
-//How to translate a Simple Triangle
-//Use WSAD to translate
-//Hooman Salamat
 #include <iostream>
 
 #include "Game.h"

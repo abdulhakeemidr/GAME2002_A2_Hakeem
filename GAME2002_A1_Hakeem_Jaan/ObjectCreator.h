@@ -31,12 +31,28 @@ private:
 		ObjSceneNode->attachObject(ObjectEntity);
 	}
 
+	void CreateMeshObject(Ogre::String mesh)
+	{
+		ObjectEntity = Game::Instance().getSceneManager()->createEntity(mesh);
+		ObjectEntity->setCastShadows(true);
+		ObjSceneNode = Game::Instance().getSceneManager()->getRootSceneNode()->createChildSceneNode();
+		ObjSceneNode->setPosition(0, -5, 0);
+		ObjSceneNode->setScale(Scale);
+		ObjSceneNode->attachObject(ObjectEntity);
+	}
+
 public:
 	ObjectCreator(Ogre::String objectName, Ogre::SceneManager::PrefabType type, const Vector3 &position, const Vector3& scale)
 		: ObjName(objectName), pType(type), Position(position)
 	{
 		Scale = scale;
 		CreateObjEntity(objectName);
+	}
+
+	ObjectCreator(Ogre::String meshFileName, const Vector3& position, const Vector3& scale)
+		: Position(position), Scale(scale)
+	{
+		CreateMeshObject(meshFileName);
 	}
 
 	SceneNode* getObjectSceneNode()
