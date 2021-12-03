@@ -518,12 +518,7 @@ C:\Users\Abdul\Documents\1 GBC\Yr 3 Sem 1\Game Engine Dev\GameEngineDevelopment\
 C:\Users\Abdul\Documents\1 GBC\Yr 3 Sem 1\Game Engine Dev\GameEngineDevelopment\ogre-sdk-v2.1\Components\Bites\Include\OgreTrays.h(189): message : see declaration of 'std::vector<OgreBites::Widget *,std::allocator<OgreBites::Widget *>>'
 C:\Users\Abdul\Documents\1 GBC\Yr 3 Sem 1\Game Engine Dev\GameEngineDevelopment\ogre-sdk-v2.1\Components\Bites\Include\OgreTrays.h(1198,23): warning C4251: 'OgreBites::TrayManager::mCursorPos': class 'Ogre::Vector<2,Ogre::Real>' needs to have dll-interface to be used by clients of class 'OgreBites::TrayManager'
 C:\Users\Abdul\Documents\1 GBC\Yr 3 Sem 1\Game Engine Dev\GameEngineDevelopment\ogre-sdk-v2.1\OgreMain\Include\OgrePrerequisites.h(252): message : see declaration of 'Ogre::Vector<2,Ogre::Real>'
-C:\Users\Abdul\Documents\1 GBC\Yr 3 Sem 1\Game Engine Dev\GAME2002_A2_Hakeem\GAME2002_A1_Hakeem_Jaan\Game.cpp(22,67): warning C4305: 'argument': truncation from 'double' to 'T'
-          with
-          [
-              T=Ogre::Real
-          ]
-C:\Users\Abdul\Documents\1 GBC\Yr 3 Sem 1\Game Engine Dev\GAME2002_A2_Hakeem\GAME2002_A1_Hakeem_Jaan\Game.cpp(123,54): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Abdul\Documents\1 GBC\Yr 3 Sem 1\Game Engine Dev\GAME2002_A2_Hakeem\GAME2002_A1_Hakeem_Jaan\Game.cpp(236,46): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Abdul\Documents\1 GBC\Yr 3 Sem 1\Game Engine Dev\GAME2002_A2_Hakeem\GAME2002_A1_Hakeem_Jaan\Game.cpp(243,42): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Abdul\Documents\1 GBC\Yr 3 Sem 1\Game Engine Dev\GAME2002_A2_Hakeem\GAME2002_A1_Hakeem_Jaan\Game.cpp(127,54): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Abdul\Documents\1 GBC\Yr 3 Sem 1\Game Engine Dev\GAME2002_A2_Hakeem\GAME2002_A1_Hakeem_Jaan\Game.cpp(238,46): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Abdul\Documents\1 GBC\Yr 3 Sem 1\Game Engine Dev\GAME2002_A2_Hakeem\GAME2002_A1_Hakeem_Jaan\Game.cpp(245,42): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   GAME2002_A1_Hakeem_Jaan.vcxproj -> C:\Users\Abdul\Documents\1 GBC\Yr 3 Sem 1\Game Engine Dev\GAME2002_A2_Hakeem\x64\Debug\GAME2002_A2_Hakeem.exe

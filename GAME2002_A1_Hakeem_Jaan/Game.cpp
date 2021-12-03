@@ -5,7 +5,6 @@
 
 Game::Game()
     : ApplicationContext("GAME2002 A2 Abdulhakeem Idris")
-    
 {
 }
 
@@ -19,8 +18,13 @@ void Game::Update(Ogre::Real timeElapsed)
 {
     for (int i = 0; i < PlatformNodePointer.size(); i++)
     {
-        PlatformNodePointer[i]->translate(Ogre::Vector3(0, -0.1, 0));
+        PlatformNodePointer[i]->translate(Ogre::Vector3(0, -1.0, 0));
     }
+    
+    //SceneNode* player;
+    SceneObjects.front()->getObjectSceneNode()->translate(Ogre::Vector3(0, -2.0, 0));
+
+    //PlayerNodePointer->translate(Ogre::Vector3(0, -1.0, 0));
 }
 
 void Game::setup()
@@ -208,25 +212,23 @@ void Game::createSceneObjects()
 
     //ObjectCreator ball("Ball", SceneManager::PrefabType::PT_SPHERE, Ogre::Vector3(0, 0, 0), Ogre::Vector3(0.01f, 0.01f, 0.01f));
 
-    /*
-    ObjectCreator ball("ninja.mesh", Ogre::Vector3(0, 0, 0), Ogre::Vector3(0.01f, 0.01f, 0.01f));
-
-    BallNodePointer = ball.getObjectSceneNode();
-
-    ObjectCreator paddle("Player", SceneManager::PrefabType::PT_PLANE, Ogre::Vector3(0, -5, 0), Ogre::Vector3(0.01f, 0.002f, 0.01f));
-
-    PlayerNodePointer = paddle.getObjectSceneNode();
-    // -- tutorial section end --
-    */
-
     //! [ninja]
-    Entity* ninjaEntity = scnMgr->createEntity("ninja.mesh");
+    
+    /*Entity* ninjaEntity = scnMgr->createEntity("ninja.mesh");
     ninjaEntity->setCastShadows(true);
-
     PlayerNodePointer = scnMgr->getRootSceneNode()->createChildSceneNode("Player");
     PlayerNodePointer->attachObject(ninjaEntity);
     PlayerNodePointer->setPosition(Ogre::Vector3(0.0f, 4.0f, 0.0f));
-    PlayerNodePointer->yaw(Degree(180));
+    PlayerNodePointer->yaw(Degree(180));*/
+    
+
+    ObjectCreator ninja("ninja.mesh", Ogre::Vector3(0.0f, 4.0f, 0.0f), "Player");
+    ninja.SetPosition(Ogre::Vector3(0.0f, 4.0f, 0.0f));
+    ninja.SetOrientation(0.0f, 180.0f, 0.0f);
+    //PlayerNodePointer = ninja.getObjectSceneNode();
+    SceneObjects.push_back(&ninja);
+    PlayerNodePointer = SceneObjects.front()->getObjectSceneNode();
+
     //PlayerNodePointer->setScale(3.0f, 3.0f, 3.0f);
     //! [ninja]
     
@@ -303,6 +305,4 @@ void Game::createFrameListener()
 {
     Ogre::FrameListener* FrameListener = new GameFrameListener();
     mRoot->addFrameListener(FrameListener);
-    /*FrameListener = new ExampleFrameListener(PlatformNodePointer);
-    mRoot->addFrameListener(FrameListener);*/
 }

@@ -7,64 +7,42 @@
 #include "Game.h"
 #include <vector>
 
-using namespace Ogre;
+//using namespace Ogre;
+//class Game;
 
 class ObjectCreator
 {
 private:
-	Ogre::Entity* ObjectEntity = NULL;
-	Ogre::SceneNode* ObjSceneNode = NULL;
+	Ogre::Entity* ObjectEntity = nullptr;
+	Ogre::SceneNode* ObjSceneNode = nullptr;
+	Ogre::String childSceneNodeName;
 	// Dynamic array of Vector3
 	//Ogre::Vector3 vertex[VertexNum];
 	std::vector<Ogre::Vector3> vertices;
-	Ogre::String ObjName;
 	SceneManager::PrefabType pType;
 	Ogre::Vector3 Position;
 	Ogre::Vector3 Scale;
 
-	void CreateObjEntity(Ogre::String SceneName)
-	{
-		ObjectEntity = Game::Instance().getSceneManager()->createEntity(pType);
-		ObjSceneNode = Game::Instance().getSceneManager()->getRootSceneNode()->createChildSceneNode(SceneName);
-		ObjSceneNode->setPosition(0, -5, 0);
-		ObjSceneNode->setScale(Scale);
-		ObjSceneNode->attachObject(ObjectEntity);
-	}
+	void CreatePrimitiveObject(Ogre::String SceneName);
 
-	void CreateMeshObject(Ogre::String mesh)
-	{
-		ObjectEntity = Game::Instance().getSceneManager()->createEntity(mesh);
-		ObjectEntity->setCastShadows(true);
-		ObjSceneNode = Game::Instance().getSceneManager()->getRootSceneNode()->createChildSceneNode();
-		ObjSceneNode->setPosition(0, -5, 0);
-		ObjSceneNode->setScale(Scale);
-		ObjSceneNode->attachObject(ObjectEntity);
-	}
+	void CreateMeshObject(const Ogre::String& mesh);
 
 public:
-	ObjectCreator(Ogre::String objectName, Ogre::SceneManager::PrefabType type, const Vector3 &position, const Vector3& scale)
-		: ObjName(objectName), pType(type), Position(position)
-	{
-		Scale = scale;
-		CreateObjEntity(objectName);
-	}
+	ObjectCreator(Ogre::SceneManager::PrefabType type, Ogre::String objectName, const Vector3& position, const Vector3& scale);
 
-	ObjectCreator(Ogre::String meshFileName, const Vector3& position, const Vector3& scale)
-		: Position(position), Scale(scale)
-	{
-		CreateMeshObject(meshFileName);
-	}
+	ObjectCreator(const Ogre::String& meshFileName, const Vector3& position, const Ogre::String& objectName = "");
 
-	SceneNode* getObjectSceneNode()
-	{
-		return ObjSceneNode;
-	}
+	SceneNode* getObjectSceneNode();
 
-	Entity* getObjEntity()
-	{
-		return ObjectEntity;
-	}
+	Entity* getObjEntity();
 
+	void SetPosition(const Ogre::Vector3& position);
+
+	void SetOrientation(Ogre::Real pitchAngle = 0.0f, Ogre::Real yawAngle = 0.0f, Ogre::Real rollAngle = 0.0f);
+
+	void SetScale(const Ogre::Vector3& scale);
 };
+
+
 
 #endif

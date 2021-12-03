@@ -8,6 +8,9 @@
 #include "OgreRTShaderSystem.h"
 #include "OgreTrays.h"
 #include <iostream>
+//#include "ObjectCreator.h"
+
+class ObjectCreator;
 
 using namespace Ogre;
 using namespace OgreBites;
@@ -43,6 +46,8 @@ public:
 
     std::vector<SceneNode*> PlatformNodePointer;
     std::vector<SceneNode*>::iterator iterator;
+
+    std::list<ObjectCreator*> SceneObjects;
 
     OgreBites::TrayListener myTrayListener;
     OgreBites::Label* mInfoLabel;
