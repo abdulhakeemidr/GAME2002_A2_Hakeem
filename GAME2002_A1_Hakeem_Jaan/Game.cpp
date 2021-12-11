@@ -22,9 +22,9 @@ void Game::Update(Ogre::Real timeElapsed)
     }
     
     //SceneNode* player;
-    SceneObjects.front()->getObjectSceneNode()->translate(Ogre::Vector3(0, -2.0, 0));
+    //SceneObjects.front()->getObjectSceneNode()->translate(Ogre::Vector3(0, -2.0, 0));
 
-    //PlayerNodePointer->translate(Ogre::Vector3(0, -1.0, 0));
+    PlayerNodePointer->translate(Ogre::Vector3(0, -1.0, 0));
 }
 
 void Game::setup()
